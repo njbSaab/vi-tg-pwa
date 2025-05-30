@@ -1,0 +1,213 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, night;
+}
+.content-w {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.nav-wrapper img {
+}
+.logo {
+  max-width: 75px;
+  width: 100%;
+  height: auto;
+  margin: 5px 0;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+}
+.logo-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+.shadow-bg {
+  box-shadow: 0 0 10px #b558ff, 0 0 30px #b558ff;
+}
+.button {
+  display: flex;
+  border-radius: 100000px;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.button-main {
+  border: 3px solid snow;
+  border-radius: 100000px;
+  width: 90%;
+}
+.button-main.my-bg-success {
+  border: 3px solid #20b855;
+}
+.button-template {
+  border-radius: 100000px;
+  background: linear-gradient(90deg, #00f 0%, #b514ff 55%);
+}
+.button-template-success {
+  border-radius: 100000px;
+  background: linear-gradient(
+    90deg,
+    #20b855 0%,
+    rgba(255, 255, 255, 0.449) 100%
+  );
+}
+.button-template-success-sec {
+  border-radius: 100000px;
+  background: linear-gradient(
+    90deg,
+    #1eb88e 0%,
+    rgba(255, 255, 255, 0.51) 100%
+  );
+}
+.button-template-success-third {
+  border-radius: 100000px;
+  background: linear-gradient(90deg, #1eb88e 0%, #20b855 100%);
+}
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.hover-accent:hover {
+  background: #1eb88f7e;
+  transition: 0.3s ease-in;
+}
+.button-main.hover-success:hover {
+  border: 3px solid #20b85587;
+  border-radius: 100000px;
+}
+.hover-success:hover {
+  background: #20b85587;
+  transition: 0.3s ease-in;
+}
+.hover-accent,
+.hover-success {
+  transition: 0.3s ease-in;
+}
+.my-bg-success {
+  background: #20b855;
+}
+.my-bg-accent {
+  background: #1eb88e;
+}
+.my-text-succes {
+  color: #20b855;
+}
+.my-text-accent {
+  color: #1eb88e;
+}
+.survey-form .card:has(> :checked) {
+  outline: 2px solid transparent !important;
+}
+.menu-post-inner {
+  overflow-y: auto;
+  height: 100%;
+  padding: 30px 0 15px;
+  scroll-behavior: smooth;
+}
+
+.menu-page .content-w {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.menu-page .card {
+  max-width: 600px;
+}
+.menu-page .title-group {
+  padding: 0 0 30px;
+}
+.margin-block {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.mat-vertical-content {
+  margin-top: 20px;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  border-radius: 30px;
+}
+.mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+  background-color: #b558ff !important;
+  color: #ffffff !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-floating-label {
+  color: #b558ff !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: #ffffff !important;
+  caret-color: #b558ff !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #b558ff !important;
+}
+.mat-mdc-button:not(:disabled) {
+  color: #b558ff !important;
+}
+.mat-step-icon-state-edit {
+  background-color: #20b8557e !important;
+  color: #1eb88e !important;
+}
+
+.text-center.text-lg.my-text-succes.congrats {
+  position: relative;
+  left: 45%;
+  transform: translateX(-50%);
+}
+.btn-success {
+  background-color: #20b855 !important;
+}
+.btn-secondary {
+  background-color: #b558ff !important;
+  outline-color: #b558ff !important;
+}
+.btn-secondary {
+  --btn-color: white;
+  --btn-fg: white;
+}
+.survey .card-body {
+  padding: 10px;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* menu */
+.section-menu {
+  height: 50dvh;
+  overflow: hidden;
+}
+.section-menu-inner {
+  height: 100%;
+  overflow-y: auto;
+}
+.buttons-group.card {
+  border-radius: var(--radius-box) var(--radius-box) 0 0;
+}
+.button-main.button {
+  display: flex;
+  border-radius: 100000px;
+  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  font-size: 26px;
+  cursor: pointer;
+}

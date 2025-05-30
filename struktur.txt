@@ -1,0 +1,39 @@
+src/
+├── app/
+│   ├── core/
+│   │   ├── pages/
+│   │   │   ├── welcome/           # Приветственная страница с опросником
+│   │   │   └── menu/             # Страница меню
+│   │   ├── components/
+│   │   │   ├── survey/           # Компонент опросника
+│   │   │   └── email-validation/ # Компонент валидации email
+│   │   ├── services/
+│   │   │   ├── api.service.ts    # API-запросы
+│   │   │   └── auth.service.ts   # Аутентификация/верификация
+│   │   ├── models/
+│   │   │   ├── user.model.ts     # Модель пользователя
+│   │   │   ├── category.model.ts # Модель категорий
+│   │   │   └── menu.model.ts     # Модель меню
+│   │   └── core.module.ts
+│   ├── shared/
+│   │   ├── components/
+│   │   │   └── loading-spinner/  # Общий компонент загрузки
+│   │   ├── shared.module.ts      # Общие модули (Material, etc.)
+│   │   └── material.module.ts    # Angular Material модули
+│   ├── notifications/
+│   │   ├── push.service.ts       # Сервис пуш-уведомлений
+│   │   └── notifications.module.ts
+│   ├── news/
+│   │   ├── components/
+│   │   │   └── news-list/        # Компонент списка новостей
+│   │   ├── news.module.ts
+│   │   └── news.service.ts
+│   ├── app.component.*
+│   ├── app.module.ts
+│   └── app-routing.module.ts
+├── assets/
+│   ├── i18n/                     # Пусто, локализация не нужна
+│   └── icons/                    # Иконки для PWA
+├── styles.css
+├── ngsw-config.json
+└── manifest.webmanifest

@@ -1,0 +1,120 @@
+<section
+  class="flex flex-col items-center justify-center min-h-screen mt-[15px] my-4 welcome"
+>
+  <div *ngIf="!showSurvey" class="text-center w-full">
+    <div class="logo-group">
+      <img
+        class="logo"
+        src="https://vietget.online/image/logo.png"
+        alt="logo"
+      />
+      <h1 class="text-3xl font-bold">Lời chào</h1>
+    </div>
+    <div *ngIf="isLoading" class="spinner">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="400"
+        height="400"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="0" fill="#b558ff">
+          <animate
+            id="svgSpinnersPulseMultiple0"
+            fill="freeze"
+            attributeName="r"
+            begin="0;svgSpinnersPulseMultiple2.end"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="0;11"
+          />
+          <animate
+            fill="freeze"
+            attributeName="opacity"
+            begin="0;svgSpinnersPulseMultiple2.end"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="1;0"
+          />
+        </circle>
+        <circle cx="12" cy="12" r="0" fill="#b558ff">
+          <animate
+            id="svgSpinnersPulseMultiple1"
+            fill="freeze"
+            attributeName="r"
+            begin="svgSpinnersPulseMultiple0.begin+0.2s"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="0;11"
+          />
+          <animate
+            fill="freeze"
+            attributeName="opacity"
+            begin="svgSpinnersPulseMultiple0.begin+0.2s"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="1;0"
+          />
+        </circle>
+        <circle cx="12" cy="12" r="0" fill="#b558ff">
+          <animate
+            id="svgSpinnersPulseMultiple2"
+            fill="freeze"
+            attributeName="r"
+            begin="svgSpinnersPulseMultiple0.begin+0.4s"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="0;11"
+          />
+          <animate
+            fill="freeze"
+            attributeName="opacity"
+            begin="svgSpinnersPulseMultiple0.begin+0.4s"
+            calcMode="spline"
+            dur="1.2s"
+            keySplines=".52,.6,.25,.99"
+            values="1;0"
+          />
+        </circle>
+      </svg>
+    </div>
+    <div *ngIf="errorMessage" class="text-red-500 mb-4">{{ errorMessage }}</div>
+    <div class="flex flex-col justify-center gap-4 min-h[50dvh]">
+      <div
+        *ngIf="greetings.length > 0"
+        class="card bg-base-100 content-w mx-auto shadow-bg"
+      >
+        <figure *ngIf="greetings[0].image_url">
+          <img
+            [src]="greetings[0].image_url"
+            alt="Greeting Image"
+            class="object-cover"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title justify-center text-2xl">
+            {{ greetings[0].title_for_client || "Thông điệp chào" }}
+            <div class="badge badge-secondary">NEW</div>
+          </h2>
+          <p [innerText]="greetings[0].greeting_text" class="text-sm"></p>
+        </div>
+      </div>
+    </div>
+    <button
+      (click)="startSurvey()"
+      [disabled]="isLoading"
+      class="button button-template-success-third mt-8 max-w-[600px] mx-auto"
+    >
+      Bắt đầu khảo sát
+    </button>
+  </div>
+  <app-survey
+    *ngIf="showSurvey"
+    (surveySubmitted)="onSurveySubmitted()"
+    class="w-full"
+  ></app-survey>
+</section>

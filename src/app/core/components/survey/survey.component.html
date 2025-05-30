@@ -1,0 +1,115 @@
+<div class="content-w shadow-bg card survey">
+  <div class="logo-wrapper">
+    <img class="logo" src="https://vietget.online/image/logo.png" alt="logo" />
+  </div>
+  <form
+    #surveyForm="ngForm"
+    (ngSubmit)="submitSurvey()"
+    class="flex flex-col gap-4 p-4 pt-0 mx-auto survey-form mb-4"
+  >
+    <div class="flex flex-col">
+      <label class="mb-4 font-bold text-2xl">Chọn danh mục:</label>
+      <div *ngIf="isLoading" class="text-center my-4">Đang tải...</div>
+      <div *ngIf="!isLoading && categories.length === 0" class="text-red-500">
+        Нет доступных категорий
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          class="card card-side bg-base-200 shadow-sm hover-success cursor-pointer items-center"
+          *ngFor="let category of categories"
+          [ngClass]="{ 'my-bg-success': selectedIds.includes(category.id) }"
+          (click)="toggleCategory(category.id)"
+        >
+          <figure *ngIf="category.image_url">
+            <img
+              [src]="category.image_url"
+              alt="{{ category.name }}"
+              class="w-24 h-24 object-cover"
+            />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">
+              {{ category.name }}
+              <span>
+                <svg
+                  *ngIf="!selectedIds.includes(category.id)"
+                  class="size-[1.2em] text-success"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="#b558ff"
+                    stroke-dasharray="32"
+                    stroke-dashoffset="32"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9"
+                  >
+                    <animate
+                      fill="freeze"
+                      attributeName="stroke-dashoffset"
+                      dur="0.7s"
+                      values="32;0"
+                    />
+                  </path>
+                </svg>
+                <svg
+                  *ngIf="selectedIds.includes(category.id)"
+                  class="size-[1.2em] text-success"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#b558ff"
+                    fill-opacity="0"
+                    d="M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9c0 0 -7.43 -7.79 -8.24 -9c-0.48 -0.71 -0.76 -1.57 -0.76 -2.5c0 -2.49 2.01 -4.5 4.5 -4.5c1.56 0 2.87 0.84 3.74 2c0.76 1 0.76 1 0.76 1Z"
+                  >
+                    <animate
+                      fill="freeze"
+                      attributeName="fill-opacity"
+                      begin="0.7s"
+                      dur="0.5s"
+                      values="0;1"
+                    />
+                  </path>
+                  <path
+                    fill="none"
+                    stroke="#b558ff"
+                    stroke-dasharray="32"
+                    stroke-dashoffset="32"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8c0 0 0 0 -0.76 -1c-0.88 -1.16 -2.18 -2 -3.74 -2c-2.49 0 -4.5 2.01 -4.5 4.5c0 0.93 0.28 1.79 0.76 2.5c0.81 1.21 8.24 9 8.24 9M12 8c0 0 0 0 0.76 -1c0.88 -1.16 2.18 -2 3.74 -2c2.49 0 4.5 2.01 4.5 4.5c0 0.93 -0.28 1.79 -0.76 2.5c-0.81 1.21 -8.24 9 -8.24 9"
+                  >
+                    <animate
+                      fill="freeze"
+                      attributeName="stroke-dashoffset"
+                      dur="0.7s"
+                      values="32;0"
+                    />
+                  </path>
+                </svg>
+              </span>
+            </h2>
+            <p>{{ category.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      [disabled]="
+        isLoading || categories.length === 0 || selectedIds.length === 0
+      "
+      class="button button-template mt-4"
+    >
+      {{ isLoading ? "Đang tải..." : "Gửi" }}
+    </button>
+    <div *ngIf="errorMessage" class="text-red-500 text-lg mt-2 text-center">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

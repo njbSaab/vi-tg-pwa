@@ -1,0 +1,26 @@
+GET https://vi.top4winners.top/users
+Accept: application/json
+
+GET https://vi.top4winners.top/categories
+Accept: application/json
+
+GET https://vi.top4winners.top/api/greetings
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/posts
+Accept: application/json
+
+GET https://vi.top4winners.top/api/posts/1
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/tables
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu-buttons-inline
+Accept: application/json
+
+GET https://vi.top4winners.top/api/news
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/posts
+Accept: application/json

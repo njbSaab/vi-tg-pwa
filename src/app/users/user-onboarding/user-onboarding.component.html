@@ -1,0 +1,200 @@
+<div class="flex flex-col items-center justify-center min-h-screen p-4">
+  <mat-vertical-stepper
+    #stepper
+    [linear]="true"
+    animationDuration="1000"
+    class="shadow-bg rounded-lg z-0"
+  >
+    <mat-step [stepControl]="nameForm">
+      <form [formGroup]="nameForm">
+        <ng-template matStepLabel>Điền tên của bạn</ng-template>
+        <mat-form-field class="w-full max-w-md">
+          <mat-label>Tên</mat-label>
+          <input matInput formControlName="firstName" required />
+          <mat-error *ngIf="nameForm.get('firstName')?.hasError('required')">
+            Vui lòng nhập tên
+          </mat-error>
+        </mat-form-field>
+        <div class="mt-4">
+          <button
+            mat-button
+            matStepperNext
+            [disabled]="nameForm.invalid || isLoading"
+            (click)="submitName()"
+          >
+            Tiếp theo
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="emailForm">
+      <form [formGroup]="emailForm">
+        <ng-template matStepLabel>Điền email của bạn</ng-template>
+        <mat-form-field class="w-full max-w-md">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="emailForm.get('email')?.hasError('required')">
+            Vui lòng nhập email
+          </mat-error>
+          <mat-error *ngIf="emailForm.get('email')?.hasError('email')">
+            Email không hợp lệ
+          </mat-error>
+        </mat-form-field>
+        <div class="mt-4">
+          <button mat-button matStepperPrevious>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  stroke-dasharray="64"
+                  stroke-dashoffset="64"
+                  d="M21 12c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9Z"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    dur="0.6s"
+                    values="64;0"
+                  />
+                </path>
+                <path
+                  stroke-dasharray="12"
+                  stroke-dashoffset="12"
+                  d="M17 12h-9.5"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.7s"
+                    dur="0.2s"
+                    values="12;0"
+                  />
+                </path>
+                <path
+                  stroke-dasharray="8"
+                  stroke-dashoffset="8"
+                  d="M7 12l4 4M7 12l4 -4"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.9s"
+                    dur="0.2s"
+                    values="8;0"
+                  />
+                </path>
+              </g>
+            </svg>
+          </button>
+          <button
+            mat-button
+            matStepperNext
+            [disabled]="emailForm.invalid || isLoading"
+            (click)="submitEmail()"
+          >
+            Tiếp theo
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="codeForm">
+      <form [formGroup]="codeForm">
+        <ng-template matStepLabel>Nhập mã xác minh</ng-template>
+        <mat-form-field class="w-full max-w-md">
+          <mat-label>Mã xác minh</mat-label>
+          <input matInput formControlName="code" required />
+          <mat-error *ngIf="codeForm.get('code')?.hasError('required')">
+            Vui lòng nhập mã
+          </mat-error>
+          <mat-error *ngIf="codeForm.get('code')?.hasError('pattern')">
+            Mã phải là 6 chữ số
+          </mat-error>
+        </mat-form-field>
+        <div class="mt-4 flex gap-2">
+          <button mat-button matStepperPrevious>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  stroke-dasharray="64"
+                  stroke-dashoffset="64"
+                  d="M21 12c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9c4.97 0 9 4.03 9 9Z"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    dur="0.6s"
+                    values="64;0"
+                  />
+                </path>
+                <path
+                  stroke-dasharray="12"
+                  stroke-dashoffset="12"
+                  d="M17 12h-9.5"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.7s"
+                    dur="0.2s"
+                    values="12;0"
+                  />
+                </path>
+                <path
+                  stroke-dasharray="8"
+                  stroke-dashoffset="8"
+                  d="M7 12l4 4M7 12l4 -4"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.9s"
+                    dur="0.2s"
+                    values="8;0"
+                  />
+                </path>
+              </g>
+            </svg>
+          </button>
+          <button
+            mat-button
+            [disabled]="codeForm.invalid || isLoading"
+            (click)="submitCode()"
+          >
+            Xác minh
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step class="">
+      <ng-template matStepLabel>Hoàn tất</ng-template>
+      <p class="text-center text-lg my-text-succes congrats">
+        🎉 Xin chúc mừng, dịch vụ tin tức đã có sẵn cho bạn. 🎁
+      </p>
+    </mat-step>
+  </mat-vertical-stepper>
+  <div *ngIf="isLoading" class="text-center my-4">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  <div *ngIf="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</div>
+</div>
