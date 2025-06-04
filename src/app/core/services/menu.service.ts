@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MenuItem } from '../models/menu-items';
 import { MenuPost } from '../models/post';
-import { MenuButton, MenuPostButton } from '../models/post-buttons';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -18,14 +17,12 @@ export class MenuService {
   }
 
   getPostById(id: number): Observable<MenuPost> {
-    return this.http.get<MenuPost>(`${environment.apiUrl}/api/posts/${id}`);
+    return this.http.get<MenuPost>(`${environment.apiUrl}/api/menu/posts/${id}`);
   }
 
-  getButtonById(id: number): Observable<MenuButton> {
-    return this.http.get<MenuButton>(`${environment.apiUrl}/api/menu-buttons-inline/${id}`);
+  getInlineButtons(): Observable<any[]> {
+    return this.http.get<any[]>(`${environment.apiUrl}/api/menu-buttons-inline`);
   }
 
-  getInlineButtons(): Observable<MenuPostButton[]> {
-    return this.http.get<MenuPostButton[]>(`${environment.apiUrl}/api/menu-buttons-inline`);
-  }
 }
+

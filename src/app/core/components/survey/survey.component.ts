@@ -15,7 +15,7 @@ export class SurveyComponent implements OnInit {
   selectedIds: number[] = [];
   isLoading = false;
   errorMessage: string | null = null;
-  @Output() surveySubmitted = new EventEmitter<void>();
+  @Output() surveySubmitted = new EventEmitter<number[]>();
 
   private imageMap: { [key: string]: string } = {
     football: 'https://i.ibb.co/dvxHRBN/foo.png',
@@ -30,7 +30,6 @@ export class SurveyComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
-    // Загружаем сохраненные категории из localStorage
     const savedData = localStorage.getItem('myApp_userPreferences');
     if (savedData) {
       const preferences = JSON.parse(savedData);
@@ -70,7 +69,6 @@ export class SurveyComponent implements OnInit {
   }
 
   saveToLocalStorage(): void {
-    // Проверяем существующие данные
     let preferences = {
       userId: uuidv4(),
       createdDate: new Date().toISOString(),
@@ -99,8 +97,8 @@ export class SurveyComponent implements OnInit {
       this.isLoading = true;
       console.log('Submitting categories:', this.selectedIds);
       this.saveToLocalStorage();
-      console.log('localStorage before redirect:', localStorage.getItem('myApp_userPreferences'));
-      this.surveySubmitted.emit();
+      console.log('localStorage before emit:', localStorage.getItem('myApp_userPreferences'));
+      this.surveySubmitted.emit(this.selectedIds);
       this.isLoading = false;
       this.router.navigate(['/onboarding']);
     } else {

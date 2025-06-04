@@ -1,14 +1,13 @@
 <div class="content-w shadow-bg card survey">
-  <div class="logo-wrapper">
-    <img class="logo" src="https://vietget.online/image/logo.png" alt="logo" />
-  </div>
   <form
     #surveyForm="ngForm"
     (ngSubmit)="submitSurvey()"
     class="flex flex-col gap-4 p-4 pt-0 mx-auto survey-form mb-4"
   >
     <div class="flex flex-col">
-      <label class="mb-4 font-bold text-2xl">Chọn danh mục:</label>
+      <label class="mb-4 font-bold text-2xl text-center pt-4"
+        >Chọn danh mục:</label
+      >
       <div *ngIf="isLoading" class="text-center my-4">Đang tải...</div>
       <div *ngIf="!isLoading && categories.length === 0" class="text-red-500">
         Нет доступных категорий

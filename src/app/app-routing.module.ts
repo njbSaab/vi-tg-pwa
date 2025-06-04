@@ -8,18 +8,17 @@ import { UserOnboardingComponent } from './users/user-onboarding/user-onboarding
 import { AuthGuard } from './core/auth.guard';
 import { NonAuthGuard } from './core/non-auth.guard';
 import { SurveyComponent } from './core/components/survey/survey.component';
-
 const routes: Routes = [
-  { path: '', component: WelcomeComponent, canActivate: [NonAuthGuard] },
+  { path: '', component: WelcomeComponent, canActivate: [NonAuthGuard], pathMatch: 'full' },
   { path: 'survey', component: SurveyComponent, canActivate: [NonAuthGuard] },
   { path: 'onboarding', component: UserOnboardingComponent, canActivate: [NonAuthGuard] },
   { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
   { path: 'news', component: NewsListComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

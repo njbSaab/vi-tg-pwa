@@ -1,4 +1,4 @@
-// src/app/core/models/post.ts
+import { MenuItem } from './menu-items';
 import { MenuPostButton } from './post-buttons';
 
 export interface MenuPost {
@@ -7,5 +7,9 @@ export interface MenuPost {
   title_for_client?: string;
   post_content: string;
   post_image_url: string | null;
-  buttons?: MenuPostButton[]; // Изменено на MenuPostButton[]
+  parent_menu?: MenuItem | null;
+  created_at: string;
+  updated_at: string;
+  buttons?: MenuPostButton[];
+  nextPostId?: number;
 }

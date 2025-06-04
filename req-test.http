@@ -7,20 +7,38 @@ Accept: application/json
 GET https://vi.top4winners.top/api/greetings
 Accept: application/json
 
-GET https://vi.top4winners.top/api/menu/posts
+GET https://vi.top4winners.top/api/menu/posts/
 Accept: application/json
 
-GET https://vi.top4winners.top/api/posts/1
+GET https://vi.top4winners.top/api/posts/6
 Accept: application/json
 
 GET https://vi.top4winners.top/api/menu/tables
 Accept: application/json
 
-GET https://vi.top4winners.top/api/menu-buttons-inline
+GET https://vi.top4winners.top/api/menu-buttons-inline/
+Accept: application/json
+
+GET https://vi.top4winners.top/menu/post-buttons
+Accept: application/json
+
+GET https://vi.top4winners.top/menu/post-buttons/70
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/posts/6
+Accept: application/json
+
+GET https://vi.top4winners.top/api/post-buttons
 Accept: application/json
 
 GET https://vi.top4winners.top/api/news
 Accept: application/json
 
-GET https://vi.top4winners.top/api/menu/posts
+GET https://vi.top4winners.top/api/menu/post-buttons
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/post-buttons/70
+Accept: application/json
+
+GET https://vi.top4winners.top/api/menu/posts/6
 Accept: application/json

@@ -19,6 +19,7 @@ export interface MenuItem {
       post_content: string;
       post_image_url: string | null;
       buttons?: MenuPostButton[];
+      nextPostId: number;
     } | null;
   }
   
